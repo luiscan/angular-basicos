@@ -1,0 +1,35 @@
+<p>Listado de Héroes</p>
+
+<ul>
+    <li> {{ heroes[0] }} </li>
+    <li> {{ heroes[1] }} </li>
+    <li> {{ heroes[2] }} </li>
+    <li> {{ heroes[3] }} </li>
+</ul>
+
+<h4> *ngFor </h4>
+
+<p>Listado de Héroes</p>
+
+ <!-- *ngIf es una de las directivas de Angular - posibilita establecer un bloque de decisión Lección 47 -->
+<div *ngIf=" heroeBorrado !== ''; else noBorrado "> <!-- <div *ngIf=" heroeBorrado"> - else hace el llamado a un template --> 
+    <h3>Héroe borrado: <small> {{ heroeBorrado }} </small></h3>    
+</div>
+
+<ng-template #noBorrado> 
+    <!-- ng-template o referencias locales trabajan con el símbolo #, en este caso muestra esta cantidad de código html gracias al else -->
+    <h3>No ha borrado nada</h3>
+</ng-template>
+        
+<br/>
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<ul>
+    <!-- *ngFor es una de las directivas de Angular Lección 46 -->
+    <!-- *ngFor clico permite recorrer un arreglo de javascript -->  
+    <li *ngFor="let heroe of heroes; let i = index">
+        {{ i + 1 }} - {{ heroe }}
+    </li>
+</ul>
